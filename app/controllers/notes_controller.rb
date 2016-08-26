@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+	
 layout :layout?, only: [:index,:new,:destroy,:show, :create]
 
 def index
