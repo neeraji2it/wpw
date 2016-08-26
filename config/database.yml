@@ -1,0 +1,24 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: wpw_development
+  pool: 5
+  username: root
+  password: dinemedia
+
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: wpw_test
+  pool: 5
+  username: root
+  password: dinemedia
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: wpw_production
+  pool: 5
+  username: root
+  password: dinemedia

@@ -1,0 +1,3 @@
+<%= nested_notes @note.subtree.arrange(:order => :created_at) %>
+
+<p><%= link_to "Back to Notes", notes_path %></p>

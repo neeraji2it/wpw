@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>wpw</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav id ="nav">
+ </div> 
+
+<div id= "page_nav" >
+<%= link_to "WPW", "#" %>
+
+     </div>
+                     
+<div id= "sign_in" >
+<%=link_to current_user.email,  "#"%>
+  <%= link_to "<i class='fa fa-fw fa-power-off'></i>".html_safe, destroy_user_session_path, :method => 'delete' %>
+<%#=link_to "Note",notes_path %>
+
+</div>
+
+</nav>
+
+<div id= "main_wrap" >
+
+ <div class="onlinesticker-container onlinesticker-border">
+
+<div class="row">
+
+  <div class="col-md-2"</div>
+  <li>
+
+  <li>
+<h5><%=link_to "Dashboard",home_index_path,class: "btn btn-default" %></h5>
+ <% Category.all.each do |category| %>
+<h5><%= link_to category.name,  notes_path(:category => category.name),class: "btn #{category.name == 'work' ? 'btn-success' : category.name == 'play' ? 'btn-danger' : 'btn-primary'}"%></h5>
+<% end %></li>
+
+</div>
+</li>
+
+  <div class="row">
+
+  <div class="col-md-9"</div>
+
+<%= yield %>
+
+</div>
+</div>
+
+ <div id="sticker_all"></div>
+
+<div id= "footer" >
+
+
+ 
+</footer>
+
+</body>
+</html>
+</div>
+
+<style>
+body {
+    margin: 2px;
+       width:100%;
+           height: 2%;
+}
+#nav {
+    background: none repeat scroll 0 0 gray;
+    float: right;
+    height: 108px;
+    width: 100%;
+}
+
+li {
+    background-color: gray;
+    height: 100%;
+    list-style-type: none;
+    margin: -66px;
+    overflow: auto;
+    padding: 44px;
+    position: fixed;
+}
+
+li a {
+    color: white;
+    display: block;
+    padding: 18px 5px 5px 25px;
+    text-decoration: none;
+}
+h5 {
+    background-color: gray;
+    color: white;
+    padding: -6 -7 14px;
+}
+h5, .h5 {
+    font-size: 15px;
+}
+li :hover:not(.active) {
+    color: white;
+}
+</style>
+
+

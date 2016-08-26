@@ -1,0 +1,48 @@
+<%= form_for @note,:url => notes_path, :html => {:method => 'POST'}  do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= f.hidden_field :parent_id %>
+  
+<div class="form-group">
+    <%= f.hidden_field :category_id, :value => @category.id %>
+  </div>
+   <%= f.label :Name %><br/>
+  <div class="input-group">
+          
+          <%= f.text_field :name, placeholder: "name", class: "form-control input-lg", label: false, :required =>true %>
+        </div><br/>
+
+     <%= f.label :Subject %><br/>
+  <div class="input-group">
+          
+          <%= f.text_field :subject, placeholder: "subject", class: "form-control input-lg", label: false, :required =>true %>
+        </div><br/>
+ 
+   <%= f.label :Description %><br/>
+  <div class="input-group">
+          
+          <%= f.text_area :description, placeholder: "", class: "form-control input-lg", label: false, :required =>true %>
+        </div><br/>
+   
+     <%= f.label :File %><br/>
+  <div class="input-group">
+          
+          <%= f.file_field :attachment, placeholder: "", class: "form-control input-sm", label: false, :required =>true  %>
+        </div><br/>
+  <div class="actions">
+    <%= f.submit "Create Notes",class: "btn btn-success" %>
+  </div>
+
+<% end %>
+
